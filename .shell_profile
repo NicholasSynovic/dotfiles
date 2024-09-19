@@ -1,0 +1,52 @@
+# Enable GPG output to console
+export GPG_TTY=$(tty)
+
+# Enable Erlang kerl to build docs
+export KERL_BUILD_DOCS="yes"
+
+# If .aliases found, source ~/.aliases
+if [ -f "$HOME/.aliases" ]; then
+    . "$HOME/.aliases"
+fi
+
+# If .pathConfig found, source ~/.pathConfig
+if [ -f "$HOME/.path_config" ]; then
+    . "$HOME/.path_config"
+fi
+
+# If sdkman is installed, source sdkman config
+if [ -s "$HOME/.local/bin/sdkman/bin/sdkman-init.sh" ]; then
+    export SDKMAN_DIR="$HOME/.local/bin/sdkman"
+    . "$SDKMAN_DIR/bin/sdkman-init.sh"
+fi
+
+# If Linuxbrew is installed, run `brew shellenv`
+if [ -s "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    export LINUXBREW_DIR="/home/linuxbrew/.linuxbrew"
+    eval "$($LINUXBREW_DIR/bin/brew shellenv)"
+fi
+
+# If nvm is installed, source nvm config auto-completion
+if [ -d "$LINUXBREW_DIR/opt/nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    . "$LINUXBREW_DIR/opt/nvm/nvm.sh"
+    . "$LINUXBREW_DIR/opt/nvm/etc/bash_completion.d/nvm"
+fi
+
+# If shell is non-login interactive and if Intel oneAPI installed, 
+# source /opt/intel/oneapi/setvars.sh
+if [[ $- == *i* ]]; then
+    if [ -f "/opt/intel/oneapi/setvars.sh" ]; then
+        . "/opt/intel/oneapi/setvars.sh"
+    fi
+fi
+
+# If running bash, set bash specific variables
+if [ -n "$BASH_VERSION" ]; then
+    eval "$(rbenv init - bash)"
+fi
+
+# If running zsh, set zsh specific variables
+if [ -n "$ZSH_VERSION" ]; then
+    eval "$(rbenv init - zsh)"
+fi

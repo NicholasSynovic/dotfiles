@@ -1,0 +1,31 @@
+#Include private bin
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+#Include private bin
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# If NVIDIA Cuda is installed, add to PATH
+if [ -d "/usr/local/cuda*/bin" ]; then
+    PATH="/usr/local/cuda*/bin:$PATH"
+    LD_LIBRARY_PATH="/usr/local/cuda-12.2/lib64:$LD_LIBRARY_PATH"
+fi
+
+# If choosenim is installed, add to PATH
+if [ -d "$HOME/.nimble" ] ; then
+    PATH="$HOME/.nimble/bin:$PATH"
+fi
+
+# If cargo is installed, add to PATH
+if [ -d "$HOME/.local/bin/cargo" ]; then
+    PATH="$HOME/.local/bin/cargo/bin:$PATH"
+fi
+
+export SDKMAN_DIR="$HOME/.local/bin/sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+PATH="$HOME/go/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
