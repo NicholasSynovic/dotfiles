@@ -1,0 +1,19 @@
+[blame]
+        coloring = repeatedLines
+	    date = unix
+        showEmail = true
+[color]
+        ui = auto
+[column]
+        ui = always
+[commit]
+        gpgSign = true
+[core]
+        fsmonitor = false
+        fsmonitorHookVersion = 1
+        editor = nvim
+        pager = less
+[user]
+	name = Nicholas M. Synovic
+	email = nicholas.synovic@gmail.com
+	signingkey = CHANGE_ME

@@ -1,0 +1,8 @@
+set autoindent
+unset backup
+set fill 80
+set mouse
+set nonewlines
+set tabsize 4
+set constantshow
+set linenumbers
