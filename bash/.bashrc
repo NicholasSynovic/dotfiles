@@ -58,3 +58,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Enable shell_profile logic
+if [ -f "$HOME/.shell_profile" ]; then
+  . $HOME/.shell_profile
+fi

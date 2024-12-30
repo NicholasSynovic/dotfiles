@@ -1,13 +1,10 @@
-" Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+" vim-plug plugins
+call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
+call plug#end()
 
 "coc rebindings
 function! ShowDocumentation()
@@ -30,14 +27,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
-
-" vim-plug plugins
-call plug#begin()
-Plug 'airblade/vim-gitgutter'
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-commentary'
-call plug#end()
 
 " https://github.com/morhetz/gruvbox/wiki/Configuration#options
 let g:gruvbox_bold = '1'

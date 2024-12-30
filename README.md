@@ -11,7 +11,7 @@
 
 ## About
 
-This repository is meant to centralize my dotfile configuration for my default home directory. 
+This repository is meant to centralize my dotfile configuration for my default home directory.
 Some applications are intentionally configured to preserve privacy. Additionally, not all dotfiles are filled out to hide secrets.
 
 This repository is primarily meant to be leveraged by me (Nicholas M. Synovic). However, other users are encouraged to utilize my dotfiles for their purposes.
