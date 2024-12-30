@@ -116,5 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Source shell agnostic rc file
-source .shell_rc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Created by `pipx` on 2024-12-21 14:58:38
+export PATH="$PATH:/home/nicholas/.local/bin"
