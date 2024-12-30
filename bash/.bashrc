@@ -4,13 +4,27 @@ case $- in
       *) return;;
 esac
 
+# Prompt Template
+PROMPT_TEMPLATE="\u@\H \W \t \$ "
+
+# Identify chroot
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, overwrite the one in /etc/profile)
+# but only if not SUDOing and have SUDO_PS1 set; then assume smart user.
+if ! [ -n "${SUDO_USER}" -a -n "${SUDO_PS1}" ]; then
+  PS1='${debian_chroot:+($debian_chroot)}$PROMPT_TEMPLATE'
+fi
+
 # Set PATH
 if [ -f "$HOME/.path_config" ]; then
     . "$HOME/.path_config"
 fi
 
 # Prompt config
-PS1="\u@\H \W \t $(__git_ps1) \$ "
+PS1=$PROMPT_TEMPLATE
 PS2="	> "
 
 # Set aliases
