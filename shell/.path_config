@@ -1,9 +1,4 @@
 #Include private bin
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-#Include private bin
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
@@ -22,10 +17,12 @@ fi
 # If cargo is installed, add to PATH
 if [ -d "$HOME/.local/bin/cargo" ]; then
     PATH="$HOME/.local/bin/cargo/bin:$PATH"
+    PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+# SDKMan path
 export SDKMAN_DIR="$HOME/.local/bin/sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+# Go path
 PATH="$HOME/go/bin:$PATH"
-PATH="$HOME/.cargo/bin:$PATH"

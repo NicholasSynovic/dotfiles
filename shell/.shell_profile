@@ -33,7 +33,7 @@ if [ -d "$LINUXBREW_DIR/opt/nvm" ]; then
     . "$LINUXBREW_DIR/opt/nvm/etc/bash_completion.d/nvm"
 fi
 
-# If shell is non-login interactive and if Intel oneAPI installed, 
+# If shell is non-login interactive and if Intel oneAPI installed,
 # source /opt/intel/oneapi/setvars.sh
 if [[ $- == *i* ]]; then
     if [ -f "/opt/intel/oneapi/setvars.sh" ]; then

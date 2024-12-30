@@ -1,7 +1,0 @@
-# Shell agnostic rc file
-
-# Enable homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Enable pipx
-export PATH="$PATH:/home/nicholas/.local/bin"
